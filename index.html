@@ -2374,4 +2374,35 @@ const launch=new URLSearchParams(location.search);
 if(launch.get('view')!=='student' && !['theory','survey','analysis','legacy'].includes(launch.get('step'))){open();}
 })();
 
-</script></body></html>
+</script>
+<!-- KAFV maintenance patch: fullscreen image click-to-restore, isolated from MASTER. -->
+<script id="kafv-lesson-fullscreen-restore-v1">
+(function(){
+  'use strict';
+  // Keep the browser's Esc behavior and all navigation actions intact.
+  function restoreOnImageClick(event){
+    if (event.button !== 0) return;
+    const full = document.fullscreenElement;
+    if (!full || !(full.id === 'stage-view' || full.classList.contains('kfloat'))) return;
+    const content = event.target.closest('.large-image, .example-visual');
+    if (!content || !full.contains(content)) return;
+    // Do not intercept clickable teaching controls inside HTML examples.
+    const control = event.target.closest('a, button:not(.large-image), input, select, textarea, [data-action]:not(.large-image), [contenteditable="true"]');
+    if (control) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const fromPip = full.classList.contains('kfloat');
+    document.exitFullscreen().then(function(){
+      // A fullscreen PIP returns to the original panel, like “돌려놓기”.
+      if (fromPip && full.isConnected){
+        const dock = full.querySelector('[data-action="pipDock"]');
+        if (dock) dock.click();
+      }
+    }).catch(function(err){
+      console.warn('[KAFV fullscreen restore]', err);
+    });
+  }
+  document.addEventListener('click', restoreOnImageClick, true);
+})();
+</script>
+</body></html>
