@@ -2,11 +2,6 @@
 
 한국AI어촌가치연구소(KAFV) · 우리어촌컨설턴트
 
-## 실행·배포
-- 압축을 해제한 후 index.html을 엽니다. 기존과 같이 기본 진입은 실습이며, 이론 탭을 선택합니다.
-- 기존 GitHub Pages 저장소 `kafv-fishing-village-consultant`의 main 브랜치 최상위에 index.html을 덮어씁니다. README.md와 QA_REPORT.md는 참고용으로 함께 업로드해도 됩니다. 기존 다른 파일을 삭제하지 않습니다.
-- 워크스테이션의 기존 이론 시작 주소는 그대로 유지합니다: https://jongcheon-kim.github.io/kafv-fishing-village-consultant/?step=theory
-- 업로드 후 Ctrl+F5로 갱신한 다음 PART 1~4, 용어 버튼, 부캉이, 전체화면 복귀 및 실습을 테스트합니다.
 
 ## 변경 사항
 - 제4차시 v0.4.9의 부캉이 UI 및 강의록 3단 구성 적용
